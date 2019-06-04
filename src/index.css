@@ -1,13 +1,41 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+    margin: 5%;
+    text-align: center;
+}
+
+.link-home {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.clue {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.text-reveal {
+    animation-name: fade-in;
+    animation-duration: 1s;
+    visibility: visible;
+}
+
+.text-hidden {
+    visibility: hidden;
+}
+
+@keyframes fade-in {
+    from { opacity: 0 }
+    to { opacity: 100 }
 }
