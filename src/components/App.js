@@ -13,7 +13,7 @@ const mapDispatchToProps = {
   pickCategory,
 };
 
-class App extends Component {
+export class App extends Component {
   componentDidMount() {
     const { categories } = this.props;
     if (!categories.length) {
