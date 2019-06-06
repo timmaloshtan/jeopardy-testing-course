@@ -44,7 +44,7 @@ export class LinkedCategory extends Component {
   render() {
     const { category } = this.props;
 
-    if (category.id !== undefined) {
+    if (category.id === undefined) {
       return <Redirect to="/" />;
     }
 
