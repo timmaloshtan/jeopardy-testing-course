@@ -9,19 +9,26 @@ const props = {
 };
 
 describe('App component', () => {
-  const app = shallow(<App {...props} />);
+  let app;
 
-  it('should render the title', () => {
-    expect(app.find('h2').text()).toEqual('Jeopardy!');
-  });
+  describe('when rendering with categories', () => {
+    app = shallow(<App {...props} />);
+    it('should render the title', () => {
+      expect(app.find('h2').text()).toEqual('Jeopardy!');
+    });
+    
+    it('should create the correct number of links', () => {
+      expect(app.find('Link').length).toEqual(categories.length);
+    });
   
-  it('should create the correct number of links', () => {
-    expect(app.find('Link').length).toEqual(categories.length);
+    it('should title links correctly', () => {
+      app.find('Link h4').forEach(
+        (link, i) => expect(link.text()).toEqual(categories[i].title),
+      );
+    });
   });
 
-  it('should title links correctly', () => {
-    app.find('Link h4').forEach(
-      (link, i) => expect(link.text()).toEqual(categories[i].title),
-    );
+  describe('when rendering without categories', () => {
+    
   });
 });

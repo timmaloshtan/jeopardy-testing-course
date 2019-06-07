@@ -27,22 +27,6 @@ export class Category extends Component {
   render() {
     const { category } = this.props;
     const { clues } = this.state;
-    return (
-      <Fragment>
-        <h2>{category.title}</h2>
-        {
-          clues.map(clue => (
-            <Clue key={clue.id} clue={clue} />
-          ))
-        }
-      </Fragment>
-    );
-  }
-}
-
-export class LinkedCategory extends Component {
-  render() {
-    const { category } = this.props;
 
     if (category.id === undefined) {
       return <Redirect to="/" />;
@@ -51,7 +35,12 @@ export class LinkedCategory extends Component {
     return (
       <div>
         <Link to="/" className="link-home"><h4>Home</h4></Link>
-        <Category {...this.props} />
+        <h2>{category.title}</h2>
+        {
+          clues.map(clue => (
+            <Clue key={clue.id} clue={clue} />
+          ))
+        }
       </div>
     );
   }
@@ -59,4 +48,4 @@ export class LinkedCategory extends Component {
 
 export default connect(
   mapStateToProps,
-)(LinkedCategory);
+)(Category);
